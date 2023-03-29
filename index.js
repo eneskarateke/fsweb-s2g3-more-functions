@@ -15,10 +15,23 @@
   örnek input:  ""
   örnek output: ""
 */
-
-function dosyaAdiniBul(/* kodlar buraya */) {
-  // kodlar buraya
+function dosyaAdiniBul(dosyaYolu) {
+  const bolme = dosyaYolu.split("/")
+  return !dosyaYolu ? "" : bolme[bolme.length-1];
 }
+console.log(dosyaAdiniBul("C:/Users/johnsmith/Music/Beethoven_5.mp3"))
+/*Alternatif Çözüm
+function dosyaAdiniBul(dosyaYolu) {
+  if(!dosyaYolu) {
+    return "";
+  }
+  const bolme = dosyaYolu.split("/");
+
+  return bolme[bolme.length-1];
+}
+console.log(dosyaAdiniBul("C:/Users/johnsmith/Music/Beethoven_5.mp3"))
+*/
+
 
 /*
   GÖREV 2
@@ -37,10 +50,29 @@ function dosyaAdiniBul(/* kodlar buraya */) {
   örnek input:  [109, 216, 288, 143, 71, 185, -278, 194, 5]
   örnek output: 104
 */
-
-function ortalamaBul(/* kodlar buraya */) {
-  // kodlar buraya
+function ortalamaBul(sayiArr) {
+  return sayiArr.length ? sayiArr.reduce((deger, index) => deger + index) / sayiArr.length : null;
 }
+
+console.log(ortalamaBul([]));
+
+/* Çözüm Alternatif
+function ortalamaBul(sayiArr) {
+  if (sayiArr.length === 0) {
+    return null;
+  }
+  
+  let total = 0;
+  
+  for (let i=0; i<sayiArr.length; i++) {
+    total += sayiArr[i];
+  }
+
+  return total / sayiArr.length;
+}
+
+console.log(ortalamaBul([]));
+*/
 
 /*
   GÖREV 3
@@ -62,9 +94,31 @@ function ortalamaBul(/* kodlar buraya */) {
   örnek output: [109, 216, 288, 143, 185, 194]
 */
 
-function ortalamadanBuyukleriBul(/* kodlar buraya */) {
-  // kodlar buraya
+function ortalamadanBuyukleriBul(arr, func) {
+  return arr.length ? arr.filter(i => i >= func(arr)) : null;
 }
+/* Alternatif Çözüm
+function ortalamadanBuyukleriBul(arr, func) {
+  
+    if (arr.length === 0) {
+      return null;
+    }
+  
+  
+  let dizi = [];
+
+  if (func(arr)) {
+    for (let i=0; i<arr.length; i++){
+      if (arr[i] >= func(arr)) {
+        dizi.push(arr[i])
+      }
+    }
+  }
+  return dizi;
+}
+
+console.log(ortalamadanBuyukleriBul([1,3,5,7], ortalamaBul))
+*/
 
 /* !!!! Burdan aşağısını değiştirmeyin !!!! */
 function as() {
