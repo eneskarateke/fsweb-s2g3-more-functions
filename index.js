@@ -19,8 +19,8 @@ function dosyaAdiniBul(dosyaYolu) {
   const bolme = dosyaYolu.split("/")
   return !dosyaYolu ? "" : bolme[bolme.length-1];
 }
-console.log(dosyaAdiniBul("C:/Users/johnsmith/Music/Beethoven_5.mp3"))
-/*Alternatif Çözüm
+console.log(dosyaAdiniBul("C:/Users/johnsmith/Music/Beethoven_5.mp3"));
+/*Alternatif    Çözüm
 function dosyaAdiniBul(dosyaYolu) {
   if(!dosyaYolu) {
     return "";
